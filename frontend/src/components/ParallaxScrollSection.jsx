@@ -43,7 +43,7 @@ function ParallaxPanel({ image, title, subtitle, index }) {
   return (
     <motion.section
       ref={ref}
-      className="relative h-[78vh] overflow-hidden border-b border-slate-200/80"
+      className="relative h-[55svh] min-h-[320px] max-h-[560px] overflow-hidden border-b border-slate-700/80"
       initial={{ opacity: 0.6 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.3 }}
@@ -52,7 +52,7 @@ function ParallaxPanel({ image, title, subtitle, index }) {
       <motion.div style={{ y, scale, opacity }} className="absolute inset-0">
         <img
           src={image}
-          alt={title}
+          alt=""
           className="h-full w-full object-cover"
         />
       </motion.div>
@@ -64,13 +64,13 @@ function ParallaxPanel({ image, title, subtitle, index }) {
         className="relative z-10 flex h-full items-end px-6 py-12 md:px-12 lg:px-20"
       >
         <div className="max-w-xl">
-          <div className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/80 backdrop-blur-sm">
+          <div className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 backdrop-blur-sm">
             {String(index + 1).padStart(2, '0')}
           </div>
-          <h3 className="text-4xl font-black tracking-[-0.08em] text-white md:text-6xl">
+          <h3 className="text-3xl font-black tracking-normal text-white md:text-4xl">
             {title}
           </h3>
-          <p className="mt-4 max-w-md text-base leading-7 text-slate-200 md:text-lg">
+          <p className="mt-4 max-w-md text-base leading-7 text-slate-300 md:text-lg">
             {subtitle}
           </p>
         </div>

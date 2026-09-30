@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Navbar({ light = false }) {
   const [scrolled, setScrolled] = useState(false)
@@ -27,13 +28,15 @@ export default function Navbar({ light = false }) {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <button className="rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-violet-300 hover:bg-violet-500/20">Start a Project</button>
+          <a href="#contact" className="button-primary">Start a Project <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>
         </div>
 
         <button
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-100 lg:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 lg:hidden"
+          type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
         >
           <div className="space-y-1.5">
             <span className={`block h-0.5 w-5 rounded-full bg-slate-200 transition ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
@@ -44,12 +47,12 @@ export default function Navbar({ light = false }) {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-slate-800 bg-slate-950/95 px-5 py-4 backdrop-blur-lg lg:hidden">
+        <div id="mobile-navigation" className="border-t border-slate-800 bg-slate-950/95 px-5 py-4 backdrop-blur-lg lg:hidden">
           <div className="flex flex-col gap-4 text-sm font-medium text-slate-300">
             {['Home', 'Services', 'Solutions', 'Work', 'About', 'Contact'].map((label) => (
               <a key={label} href={`#${label.toLowerCase() === 'home' ? 'top' : label.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
-            <button className="mt-2 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-2.5 font-semibold text-white">Start a Project</button>
+            <a href="#contact" className="button-primary mt-2">Start a Project <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></a>
           </div>
         </div>
       )}

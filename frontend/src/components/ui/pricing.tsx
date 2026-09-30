@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { motion, useSpring } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Check, Star } from 'lucide-react';
+import { ArrowUpRight, Check, Star } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -32,12 +32,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-400 text-white shadow-[0_18px_45px_rgba(99,102,241,0.45)] hover:brightness-110',
+        default: 'bg-gradient-to-r from-violet-500 to-indigo-600 text-white shadow-[0_18px_45px_rgba(99,102,241,0.35)] hover:brightness-110',
         destructive: 'bg-red-600 text-white hover:bg-red-500',
-        outline: 'border border-slate-700 bg-slate-900/60 text-slate-100 hover:border-indigo-500 hover:text-white',
-        secondary: 'bg-slate-800 text-slate-100 hover:bg-slate-700',
+        outline: 'border border-slate-700 bg-slate-900/60 text-slate-300 hover:border-violet-400 hover:text-white',
+        secondary: 'bg-slate-800 text-slate-300 hover:bg-slate-700',
         ghost: 'text-slate-300 hover:bg-slate-800',
-        link: 'text-indigo-300 underline-offset-4 hover:underline',
+        link: 'text-violet-300 underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 px-5 py-2.5',
@@ -208,8 +208,8 @@ export function PricingSection({
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
           <div className="mx-auto mb-12 max-w-3xl space-y-4 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-indigo-300">Pricing</p>
-            <h2 className="text-4xl font-black tracking-[-0.08em] text-white sm:text-5xl">{title}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-300">Pricing</p>
+            <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">{title}</h2>
             <p className="text-lg text-slate-300">{description}</p>
           </div>
 
@@ -284,7 +284,7 @@ function PricingToggle() {
           onClick={() => handleToggle(true)}
           className={cn(
             'relative z-10 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors sm:px-6',
-            isMonthly ? 'text-white' : 'text-slate-400 hover:text-slate-100',
+            isMonthly ? 'text-white' : 'text-slate-300 hover:text-white',
           )}
         >
           Monthly
@@ -295,11 +295,11 @@ function PricingToggle() {
           onClick={() => handleToggle(false)}
           className={cn(
             'relative z-10 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors sm:px-6',
-            !isMonthly ? 'text-white' : 'text-slate-400 hover:text-slate-100',
+            !isMonthly ? 'text-white' : 'text-slate-300 hover:text-white',
           )}
         >
           Annual
-          <span className={cn('hidden sm:inline', !isMonthly ? 'text-white/80' : 'text-slate-400')}>
+          <span className={cn('hidden sm:inline', !isMonthly ? 'text-white/80' : 'text-slate-300')}>
             {' '} (Save 20%)
           </span>
         </button>
@@ -328,7 +328,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         delay: index * 0.15,
       }}
       className={cn(
-        'relative flex flex-col rounded-[30px] border bg-slate-900/80 p-8 shadow-[0_18px_60px_rgba(15,23,42,0.55)] backdrop-blur-sm',
+        'relative flex flex-col rounded-2xl border bg-slate-900/80 p-8 shadow-[0_18px_60px_rgba(15,23,42,0.55)] backdrop-blur-sm',
         plan.isPopular ? 'border-indigo-500/60 shadow-[0_20px_70px_rgba(99,102,241,0.22)]' : 'border-slate-800',
       )}
     >
@@ -346,7 +346,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         <p className="mt-3 text-sm text-slate-300">{plan.description}</p>
 
         <div className="mt-8 flex items-end justify-center gap-x-1">
-          <span className="text-5xl font-black tracking-[-0.08em] text-white">
+          <span className="text-4xl font-black tracking-normal text-white">
             <NumberFlow
               value={isMonthly ? Number(plan.price) : Number(plan.yearlyPrice)}
               format={{
@@ -357,19 +357,19 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
               className="font-variant-numeric: tabular-nums"
             />
           </span>
-          <span className="pb-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+          <span className="pb-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">
             / {plan.period}
           </span>
         </div>
 
-        <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-400">
+        <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-300">
           {isMonthly ? 'Billed monthly' : 'Billed annually'}
         </p>
 
         <ul className="mt-8 space-y-3 text-left text-sm text-slate-300">
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-center gap-3">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500/20 text-indigo-300 ring-1 ring-indigo-400/30">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-500/20 text-violet-300 ring-1 ring-violet-400/30">
                 <Check className="h-3.5 w-3.5" />
               </span>
               {feature}
@@ -388,7 +388,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
               'w-full justify-center',
             )}
           >
-            {plan.buttonText}
+            {plan.buttonText} <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </div>
       </div>
