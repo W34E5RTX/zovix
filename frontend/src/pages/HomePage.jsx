@@ -218,26 +218,47 @@ export default function HomePage() {
                   <p className="mt-5 text-lg text-slate-300">Tell us about your goals and we’ll guide the right solution with clarity and momentum.</p>
                 </div>
                 <form className="grid gap-5 sm:grid-cols-2">
-                  <input className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" placeholder="Name" />
-                  <input className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" placeholder="Email" />
-                  <input className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" placeholder="Phone" />
-                  <input className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" placeholder="Company" />
-                  <select className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition focus:border-violet-400 sm:col-span-2">
-                    <option>Web Development</option>
-                    <option>SaaS Development</option>
-                    <option>Custom Software</option>
-                    <option>AI Automation</option>
-                    <option>E-commerce</option>
-                    <option>Other</option>
-                  </select>
-                  <select className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition focus:border-violet-400 sm:col-span-2">
-                    <option>Under ₹25,000</option>
-                    <option>₹25,000 - ₹50,000</option>
-                    <option>₹50,000 - ₹1,00,000</option>
-                    <option>₹1,00,000 - ₹5,00,000</option>
-                    <option>₹5,00,000+</option>
-                  </select>
-                  <textarea rows="5" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400 sm:col-span-2" placeholder="Message" />
+                  <div className="grid gap-2">
+                    <label htmlFor="contact-name" className="text-sm font-medium text-slate-300">Name</label>
+                    <input id="contact-name" name="name" autoComplete="name" required className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" />
+                  </div>
+                  <div className="grid gap-2">
+                    <label htmlFor="contact-email" className="text-sm font-medium text-slate-300">Email</label>
+                    <input id="contact-email" name="email" type="email" autoComplete="email" required className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" />
+                  </div>
+                  <div className="grid gap-2">
+                    <label htmlFor="contact-phone" className="text-sm font-medium text-slate-300">Phone</label>
+                    <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" />
+                  </div>
+                  <div className="grid gap-2">
+                    <label htmlFor="contact-company" className="text-sm font-medium text-slate-300">Company</label>
+                    <input id="contact-company" name="company" autoComplete="organization" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" />
+                  </div>
+                  <div className="grid gap-2 sm:col-span-2">
+                    <label htmlFor="contact-service" className="text-sm font-medium text-slate-300">What do you need?</label>
+                    <select id="contact-service" name="service" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition focus:border-violet-400">
+                      <option>Web Development</option>
+                      <option>SaaS Development</option>
+                      <option>Custom Software</option>
+                      <option>AI Automation</option>
+                      <option>E-commerce</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div className="grid gap-2 sm:col-span-2">
+                    <label htmlFor="contact-budget" className="text-sm font-medium text-slate-300">Estimated budget</label>
+                    <select id="contact-budget" name="budget" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition focus:border-violet-400">
+                      <option>Under ₹25,000</option>
+                      <option>₹25,000 - ₹50,000</option>
+                      <option>₹50,000 - ₹1,00,000</option>
+                      <option>₹1,00,000 - ₹5,00,000</option>
+                      <option>₹5,00,000+</option>
+                    </select>
+                  </div>
+                  <div className="grid gap-2 sm:col-span-2">
+                    <label htmlFor="contact-message" className="text-sm font-medium text-slate-300">Project details</label>
+                    <textarea id="contact-message" name="message" rows="5" className="rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-300 outline-none transition placeholder:text-slate-400 focus:border-violet-400" />
+                  </div>
                   <button type="submit" className="button-primary sm:col-span-2">Send Project Request <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></button>
                 </form>
               </div>

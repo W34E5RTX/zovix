@@ -22,7 +22,7 @@ const sections = [
   },
   {
     image:
-      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=80',
     title: 'Automation',
     subtitle: 'Operational flows that help teams act smarter and move faster.'
   }
@@ -57,7 +57,7 @@ function ParallaxPanel({ image, title, subtitle, index }) {
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/30 to-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/60 to-slate-950/45" />
 
       <motion.div
         style={{ y: contentY }}
